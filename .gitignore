@@ -1,0 +1,8 @@
+/node_modules
+/build
+/spa
+.idea/
+*.zip
+.irepctl
+.DS_Store
+/index.html

@@ -1,0 +1,512 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+#options-wrapper div[class*='icon-']:before,
+#buttons-wrapper div[class*='icon-']:before,
+#position-wrapper div[class*='icon-']:before{
+	display: inline-block;
+	font-family: 'Roboto';
+	font-size: 60px;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-blur:before{
+	content: '\0041';
+}
+.icon-brightness:before{
+	content: '\0042';
+}
+.icon-cancel:before{
+	content: '\0043';
+}
+.icon-download:before{
+	content: '\0044';
+}
+.icon-grayscale:before{
+	content: '\0045';
+}
+.icon-invert:before{
+	content: '\0046';
+}
+.icon-position:before{
+	content: '\0047';
+}
+.icon-saturate:before{
+	content: '\0048';
+}
+.icon-save:before{
+	content: '\0049';
+}
+.icon-sepia:before{
+	content: '\004a';
+}
+.icon-sharpness:before{
+	content: '\004b';
+}
+.icon-trim:before{
+	content: '\004c';
+}
+.icon-contrast:before{
+	content: '\004d';
+}
+.icon-rotate-left:before{
+	content: '\004e';
+}
+.icon-rotate-right:before{
+	content: '\004f';
+}
+.icon-flip-horizontal:before{
+	content: '\0050';
+}
+.icon-flip-vertical:before{
+	content: '\0051';
+}
+html,
+body,
+div#content-wrapper{
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-color: #333333;
+}
+div#content-wrapper{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	background: radial-gradient(600px circle at 50% 50%, rgba(0, 0, 0, 0.5), hsla(0, 0%, 100%, 0));
+}
+div#editor-wrapper{
+	position: relative;
+	display: none;
+}
+div#buttons-wrapper,
+div#options-wrapper,
+div#position-wrapper{
+	width: 100%;
+}
+div#buttons-wrapper{
+	height: 60px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid;
+}
+div#options-wrapper.visible{
+	display: none;
+}
+div#options-wrapper,
+div#sub-options-wrapper,
+div#position-wrapper{
+	display: flex;
+	align-content: end;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 100%;
+}
+div#sub-options-wrapper{
+	width: 100%;
+}
+div#sub-options-wrapper{
+	display: none;
+}
+div#sub-options-wrapper.blur,
+div#sub-options-wrapper.contrast,
+div#sub-options-wrapper.brightness,
+div#sub-options-wrapper.sharpness,
+div#sub-options-wrapper.invert,
+div#sub-options-wrapper.saturate,
+div#sub-options-wrapper.sepia,
+div#sub-options-wrapper.position,
+div#sub-options-wrapper.trim,
+div#sub-options-wrapper.grayscale,
+div#sub-options-wrapper.blur div.sub-option#blur,
+div#sub-options-wrapper.contrast div.sub-option#contrast,
+div#sub-options-wrapper.brightness div.sub-option#brightness,
+div#sub-options-wrapper.sharpness div.sub-option#sharpness,
+div#sub-options-wrapper.invert div.sub-option#invert,
+div#sub-options-wrapper.saturate div.sub-option#saturate,
+div#sub-options-wrapper.sepia div.sub-option#sepia,
+div#sub-options-wrapper.position div.sub-option#position,
+div#sub-options-wrapper.trim div.sub-option#trim,
+div#sub-options-wrapper.grayscale div.sub-option#grayscale{
+	display: flex;
+}
+div#sub-options-wrapper div.sub-option{
+	display: none;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 60px;
+	margin: 20px 0;
+}
+div#sub-options-wrapper div.sub-option div.slider{
+	width: 100%;
+	height: 100%;
+}
+div#sub-options-wrapper div.sub-option div.slider > input{
+	position: static;
+	visibility: visible;
+	width: 100%;
+	height: auto;
+	opacity: 1;
+}
+div#sub-options-wrapper div.sub-option div.slider > output{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+}
+div#sub-options-wrapper div.sub-option > p{
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+}
+input[type=range]{
+	width: 100%;
+	margin: 15px 0;
+	
+	-webkit-appearance: none;
+}
+input[type=range]:focus{
+	outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track{
+	width: 100%;
+	height: 10px;
+	border: 0 solid #010101;
+	border-radius: 5px;
+	cursor: pointer;
+	background: #cccccc;
+}
+input[type=range]::-webkit-slider-thumb{
+	width: 40px;
+	height: 40px;
+	margin-top: -15px;
+	border: 1px solid #000000;
+	border-radius: 40px;
+	cursor: pointer;
+	background: #ffffff;
+	
+	-webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track{
+	background: #cccccc;
+}
+input[type=range]::-moz-range-track{
+	width: 100%;
+	height: 10px;
+	border: 0 solid #010101;
+	border-radius: 0;
+	cursor: pointer;
+	background: #cccccc;
+}
+input[type=range]::-moz-range-thumb{
+	width: 40px;
+	height: 40px;
+	border: 1px solid #000000;
+	border-radius: 40px;
+	cursor: pointer;
+	background: #ffffff;
+}
+input[type=range]::-ms-track{
+	width: 100%;
+	height: 10px;
+	border-color: transparent;
+	cursor: pointer;
+	background: transparent;
+	color: transparent;
+}
+input[type=range]::-ms-fill-lower{
+	border: 0;
+	border-radius: 0;
+	background: #0aab49;
+}
+input[type=range]::-ms-fill-upper{
+	border: 0;
+	border-radius: 0;
+	background: #0aab49;
+}
+input[type=range]::-ms-thumb{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	cursor: pointer;
+	background: #ffffff;
+}
+input[type=range]:focus::-ms-fill-lower{
+	background: #0aab49;
+}
+input[type=range]:focus::-ms-fill-upper{
+	background: #0aab49;
+}
+div#buttons-wrapper > div{
+	display: inline-flex;
+	width: 60px;
+	height: 60px;
+	border: none;
+}
+div#buttons-wrapper > div#save{
+	display: none;
+	float: right;
+}
+div#buttons-wrapper > div#cancel{
+	display: none;
+}
+div#buttons-wrapper > div#download{
+	float: right;
+}
+div#buttons-wrapper.visible > div#save,
+div#buttons-wrapper.visible > div#cancel{
+	display: inline-flex;
+}
+div#buttons-wrapper.visible > div#download{
+	display: none;
+}
+div#options-wrapper > div,
+div#position-wrapper > div{
+	flex-basis: 60px;
+	height: 80px;
+	margin: 20px 14px 0;
+}
+div#buttons-wrapper > div#save:hover{
+	color: #0a72ab;
+}
+div#buttons-wrapper > div#download:hover{
+	color: #0aab49;
+}
+div#buttons-wrapper > div#cancel:hover{
+	color: #ff0000;
+}
+div#buttons-wrapper > div:hover,
+div#options-wrapper > div:hover,
+div#options-wrapper > div:hover > p,
+div#position-wrapper > div:hover,
+div#position-wrapper > div:hover > p{
+	cursor: pointer;
+	color: #ff0000;
+}
+div#options-wrapper > div > p,
+div#position-wrapper > div > p{
+	position: relative;
+	top: 0;
+	text-align: center;
+	pointer-events: none;
+	color: #000000;
+	font-family: RobotoBold;
+	font-size: 12px;
+}
+.visible canvas{
+	animation: opacity 1s ease-in 1 forwards;
+}
+.visible div#editor-wrapper{
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+.visible div#landscape-editor-wrapper,
+.visible div#tools-wrapper{
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 75%;
+	height: auto;
+	padding: 10px;
+}
+.visible div#tools-wrapper{
+	width: 25%;
+	animation: appear-right 1s ease-in 1s 1 backwards;
+	background: #f7f7f7;
+}
+input{
+	position: absolute;
+	z-index: 10;
+	display: block;
+	width: 320px;
+	height: 320px;
+	opacity: 0;
+}
+div#content-wrapper.visible{
+	background: none;
+}
+.visible div#landscape-editor-wrapper{
+	background: radial-gradient(600px circle at 50% 50%, rgba(0, 0, 0, 0.5), hsla(0, 0%, 100%, 0));
+}
+.visible div#upload-wrapper{
+	opacity: 0;
+}
+.visible input{
+	visibility: hidden;
+}
+.pos-center{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+div#upload-wrapper{
+	width: 320px;
+	height: 320px;
+}
+div#upload{
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	transition: all 0.5s;
+	text-align: center;
+	background-color: #dc143c;
+	box-shadow: 0 0 0 transparent inset, 0 0 0 10px #ffffff, 0 -3px 10px 9px rgba(100, 100, 100, 0.5);
+}
+div#upload:after{
+	position: absolute;
+	display: block;
+	width: 350px;
+	height: 350px;
+	border-radius: 50%;
+	content: '';
+	transition: all 0.5s;
+}
+input:hover + div#upload-wrapper > div#upload{
+	background: #0aab49;
+	color: #dddddd;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5) inset, 0 0 0 10px #ffffff, 0 -3px 10px 9px rgba(100, 100, 100, 0.5);
+	text-shadow: 0 2px 5px #000000;
+}
+input:hover + div#upload-wrapper > div#upload:after{
+	transition: all 0.5s;
+	animation: rotate 2s linear infinite;
+	box-shadow: -20px -20px 0 0 rgba(255, 0, 0, 0.3), -25px 0 0 0 rgba(255, 170, 0, 0.3), -20px 20px 0 0 rgba(170, 255, 0, 0.3), 0 25px 0 0 rgba(0, 255, 0, 0.3), 20px 20px 0 0 rgba(0, 255, 170, 0.3), 25px 0 0 0 rgba(0, 170, 255, 0.3), 20px -20px 0 0 rgba(0, 0, 255, 0.3), 0 -25px 0 0 rgba(170, 0, 255, 0.3);
+}
+p{
+	color: #ffffff;
+	font: 600 30px/1 Roboto;
+}
+
+div#trim-wrapper {
+	position: absolute;
+	display: none;
+	cursor: move;
+	margin: 0;
+}
+
+div#trim-section {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	outline: 2px dashed rgba(222,60,80,.9);
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 10000px;
+}
+
+div#trim-section:hover,
+div#trim-section:active {
+	outline: 2px dashed rgba(111, 222, 60, 0.9);
+}
+
+.trim-handle {
+	position: absolute;
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: rgba(222,60,80,.9);
+	z-index: 999;
+}
+
+.trim-handle-nw {
+	top: -5px;
+	left: -5px;
+	cursor: nw-resize;
+	z-index: 10;
+}
+
+.trim-handle-sw {
+	bottom: -5px;
+	left: -5px;
+	cursor: sw-resize;
+}
+
+.trim-handle-ne {
+	top: -5px;
+	right: -5px;
+	cursor: ne-resize;
+}
+
+.trim-handle-se {
+	bottom: -5px;
+	right: -5px;
+	cursor: se-resize;
+}
+
+div#trim-wrapper.visible {
+	display: inline-block;
+}
+
+div#trim-block {
+	width: 100%;
+	height: 100%;
+}
+
+div#trim-button {
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+	border-radius: 10px;
+	border: 2px solid #000000;
+	font: 600 20px/1 Roboto;
+}
+
+div#trim-button:hover {
+	cursor: pointer;
+	color: #dc143c;
+	border-color: #dc143c;
+}
+
+a#download-link {
+	display: none;
+}
+
+@keyframes rotate{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+@keyframes appear-right{
+	from{
+		transform: translateX(100%);
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+@keyframes opacity{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@media all and (max-width: 767px){
+	.visible div#editor-wrapper{
+		flex-direction: column;
+	}
+	.visible div#landscape-editor-wrapper{
+		width: auto;
+		height: 60%;
+	}
+	.visible div#tools-wrapper{
+		width: auto;
+		height: 40%;
+	}
+}
